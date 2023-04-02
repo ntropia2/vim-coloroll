@@ -1,0 +1,28 @@
+- debugging is a nightmare, error messages are rarely useful on their own and require
+  quite a lot of "deconvolution" to understand what they really mean
+
+- the syntax is really convoluted
+- one of the most frustrating aspects of coding in VimScript is the inconsistencies and
+  idiosyncracies that are typical of this language. Functions must be explicitly called
+  with "call" unless... they don't. 
+- error reporting is messy because the line numbering is relative to the current scope
+  (i.e., errors inside the functions are referred to the line numbers starting counting
+  from the `func` defining the function). Ultimately, it has the robustness of error
+  reporting of Bash with the user-friendliness  of  gcc.
+  - There is a great deal of nested logic with commands that make sense only at a given
+    level, but they all exist in the same namespace... 
+
+- the vim documentation is very rich but very hard to navigate. Searching by regular
+  expression takes an incredible mount of practice, and it basically requires a
+  significant amount of knowledge already. As a reference manual it's really amazing, but
+  as an online help, it is very user-unfriendly.
+
+- passing values to some commands requires some gymnastic, e.g.: 
+       let my_value = &updatevalue
+       set updatevalue = 100
+       exec("set updatevalue=". my_value)
+       " the following command will raise an error:
+       "    set updatevalue=my_value
+
+- the scope of some commands is obscure and generates apparent inconsistencies   in the
+  name space. For example, 
