@@ -20,7 +20,7 @@ made (`<Cr>`), the choice is applied and permanently saved for next sessions.
 
 
 Use your favorite plugin manager or copy/clone it in your ``.vim/autoload`` directory.
-With Vim-plug:
+With Vim-plug this will install the plugin:
 
     Plug 'ntropia2/vim-coloroll'
 
@@ -50,7 +50,7 @@ Keybindings for each command in normal mode can be specified as following:
 
 ### Menu key bindings
 
-When a command is executd and the menu is visible, there are the following key
+When a command is executed and the menu is visible, there are the following key
 bindings available:
 
 | key | description |
@@ -109,3 +109,8 @@ be created automatically. The file path can be changed as following:
 <!--     let g:coloroll_special_settings= {"color":{'ayu' : ["let ayucolor=\"dark\""]}, "theme":{}} -->
 
 <!-- This part doesn't work yet! -->
+
+### TODO
+
+- [x] ~~write a plugin to learn Vimscript~~
+- [ ] write a useful plugin
