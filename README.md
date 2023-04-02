@@ -114,3 +114,4 @@ be created automatically. The file path can be changed as following:
 
 - [x] ~~write a plugin to learn Vimscript~~
 - [ ] write a useful plugin
+- [ ] add custom post commands to be executed after colorscheme/theme is accepted
