@@ -107,11 +107,11 @@ command! -nargs=0 ColorollAllColors call coloroll#SelectorMenu('color')
 command! -nargs=0 ColorollFavoriteColors call coloroll#SelectorMenu('color', g:coloroll_favorites['color'])
 
 if exists('g:coloroll_keymap_allcolors')
-    execute("nnoremap ". g:coloroll_keymap_allcolors . " :ColorollAllColors<CR>")
+    execute("nnoremap <silent> ". g:coloroll_keymap_allcolors . " :ColorollAllColors<CR>")
 endif
 
 if exists('g:coloroll_keymap_favcolors')
-    execute("nnoremap ". g:coloroll_keymap_favcolors . " :ColorollFavoriteColors<CR>")
+    execute("nnoremap <silent> " . g:coloroll_keymap_favcolors . " :ColorollFavoriteColors<CR>")
 endif
 
 
@@ -127,13 +127,13 @@ if !exists('g:coloroll_airline')
     endif
 
     command! -nargs=0 ColorollAllThemes call coloroll#SelectorMenu('theme')
-    command! -nargs=0 ColorollFavoriteThemes call coloroll#SelectorMenu('color', g:coloroll_favorites['themes'])
+    command! -nargs=0 ColorollFavoriteThemes call coloroll#SelectorMenu('theme', g:coloroll_favorites['theme'])
     if exists('g:coloroll_keymap_allthemes')
-        execute("nnoremap ". g:coloroll_keymap_allthemes . " :ColorollAllThemes<CR>")
+        execute("nnoremap <silent> ". g:coloroll_keymap_allthemes . " :ColorollAllThemes<CR>")
     endif
 
     if exists('g:coloroll_keymap_favthemes')
-        execute("nnoremap ". g:coloroll_keymap_favthemes . " :ColorollFavoriteThemes<CR>")
+        execute("nnoremap <silent> ". g:coloroll_keymap_favthemes . " :ColorollFavoriteThemes<CR>")
     endif
 else
     let message = "Airline does not seem to me installed. Install it and restart your Vim session"

@@ -275,11 +275,11 @@ func! coloroll#SelectorMenu(mode='color', choice_list=v:null )
     " modify the prefered list items to show the bookmark suffix
     let g:choice_buff_list = []
     let l:last_item_idx = -1
-    echom "strwidth:" .       strwidth(g:coloroll_favorite_mark)
-    echom "strlen:" .       strlen(g:coloroll_favorite_mark)
-    echom "len:" .       len(g:coloroll_favorite_mark)
-    echom "strdisplaywidth:"  .       strdisplaywidth(g:coloroll_favorite_mark)
-    echom "strchars::" .       strchars(g:coloroll_favorite_mark)
+    " echom "strwidth:" .       strwidth(g:coloroll_favorite_mark)
+    " echom "strlen:" .       strlen(g:coloroll_favorite_mark)
+    " echom "len:" .       len(g:coloroll_favorite_mark)
+    " echom "strdisplaywidth:"  .       strdisplaywidth(g:coloroll_favorite_mark)
+    " echom "strchars::" .       strchars(g:coloroll_favorite_mark)
     for item in l:pool
         if item == l:last_item
             let l:last_item_idx = index(l:pool, l:last_item)
