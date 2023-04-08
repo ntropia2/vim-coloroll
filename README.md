@@ -112,6 +112,6 @@ be created automatically. The file path can be changed as following:
 
 ### TODO
 
-- [x] ~~write a plugin to learn Vimscript~~
-- [ ] write a useful plugin
+- [ ] ~~write a useful plugin~~
+- [x] write a plugin to learn Vimscript
 - [ ] add custom post commands to be executed after colorscheme/theme is accepted
