@@ -93,12 +93,6 @@ else
     call coloroll#ColorApplier(g:coloroll_last_colorscheme, v:true)
 endif
 
-if exists('g:coloroll_force_airlinetheme')
-    call coloroll#ThemeApplier(g:coloroll_force_airlinetheme, v:true)
-else
-    " apply current settings
-    call coloroll#ThemeApplier(g:coloroll_last_airlinetheme, v:true)
-endif
 
 
 
@@ -135,6 +129,13 @@ if !exists('g:coloroll_airline')
     if exists('g:coloroll_keymap_favthemes')
         execute("nnoremap <silent> ". g:coloroll_keymap_favthemes . " :ColorollFavoriteThemes<CR>")
     endif
+    if exists('g:coloroll_force_airlinetheme')
+        call coloroll#ThemeApplier(g:coloroll_force_airlinetheme, v:true)
+    else
+        " apply current settings
+        call coloroll#ThemeApplier(g:coloroll_last_airlinetheme, v:true)
+    endif
+
 else
     let message = "Airline does not seem to me installed. Install it and restart your Vim session"
     command! -nargs=0 ColorollAllThemes call coloroll#ColorollError(message)
