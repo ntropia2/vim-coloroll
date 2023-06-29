@@ -6,12 +6,12 @@
 "  g: coloroll_force_airlinetheme
 "           override what's in the file
 "
+" default keybindings
 "
-" let g:coloroll_keymap_allcolors = "\<leader>0"
-" let g:coloroll_keymap_favcolors = "\<leader>9"
-" let g:coloroll_keymap_allthemes = "\<leader>8"
-" let g:coloroll_keymap_favthemes = "\<leader>7"
-"
+let g:coloroll_keymap_allcolors = "\<leader>0"
+let g:coloroll_keymap_favcolors = "\<leader>9"
+let g:coloroll_keymap_allthemes = "\<leader>8"
+let g:coloroll_keymap_favthemes = "\<leader>7"
 "
 
 if exists('g:ColorollLoaded')  "|| &cp
@@ -114,7 +114,7 @@ endif
 "
 " find if Airline is installed
 call coloroll#check_airline()
-if !exists('g:coloroll_airline')
+if g:coloroll_airline_found == 1
     let g:coloroll_airline =  g:coloroll_airline_found
     if !exists("g:coloroll_last_airlinetheme")
         let g:coloroll_last_airlinetheme = execute("AirlineTheme")[1:]
