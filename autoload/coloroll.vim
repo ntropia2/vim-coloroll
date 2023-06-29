@@ -15,6 +15,12 @@
 " during previews is disabled to prevent making the changes permanent
 let g:coloroll__event_monitoring = 1
 
+function! coloroll#ColorollError(message)
+    echohl Error
+    echom "Coloroll: " . a:message
+    echohl None
+endfunction
+
 func! coloroll#update_colorscheme()
     if g:coloroll__event_monitoring == 1
         let g:coloroll_last_colorscheme = execute("colorscheme")[1:] |
@@ -97,11 +103,22 @@ endfunc
 
 func! coloroll#ColorApplier(colorscheme, save=v:false )
     " helper function to create a wrapped colorscheme function
+    let l:pool = getcompletion('', 'color')
+    if index(l:pool, a:colorscheme) == -1
+    " if !a:colorscheme in l:pool
+        let l:target = l:pool[0]
+        let l:msg =  "Warning: colorscheme ". a:colorscheme . " is not available. Fall-back to default: " . l:target
+        call coloroll#ColorollError(msg)
+        " echom
+        " let a:target = l:default
+    else
+        let l:target = a:colorscheme
+    endif
     if a:save
         let g:coloroll__event_monitoring = 1
         " this shoukd be suffic8rnt to trigger aurodave
     endif
-    execute("colorscheme " . a:colorscheme)
+    execute("colorscheme " . l:target)
 endfunc
 
 func! coloroll#ThemeApplier(theme, save=v:false)
@@ -265,7 +282,7 @@ func! coloroll#SelectorMenu(mode='color', choice_list=v:null )
         endif
         let l:last_item = execute("AirlineTheme")[1:] 
         let l:callback_func = "coloroll#ThemeCallback"
-        let l:title_text = " Select theme (current: ". l:last_item . ") "
+        let l:title_text = " Select AirLine theme (current: ". l:last_item . ") "
         if a:choice_list isnot v:null
             let l:pool = a:choice_list
         else
@@ -329,11 +346,5 @@ func! coloroll#HelpMenu()
     let l:content = ["Up/Down\t move cursor up and down", "<CR>\t accept color"] 
     call popup_create(l:content, #{close : 'click', zindex: 20})    
 endfunc
-
-function! coloroll#ColorollError(message)
-    echohl Error
-    echom "Coloroll: " . a:message
-    echohl None
-endfunction
 
 
